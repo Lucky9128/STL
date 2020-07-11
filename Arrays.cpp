@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     const int lent =5;
-    array<int,lent> myarr  = {1,2,3};
+    array<int,lent> myarr  = {1,2,3,4,5};
 
     // for(int i=1;i<=lent;i++)
     //     myarr.fill(i);
@@ -73,10 +73,23 @@ int main()
     cout<<"Before -> "<<*it<<endl;
     *it = *it+1; 
     cout<<"After -> "<<*it<<endl;
+    *it-=1;
     cout<<"size->"<<myarr.size()<<endl;
     cout<<"maxsize->"<<myarr.max_size()<<endl;
-    //didn't found any difference in max_size and size 
-
+    //didn't found any difference in max_size and size
     cout<<sizeof(myarr)<<endl;
+
+
+    array<array<int,5>,3> myarr2 ;  
+    myarr2.fill(myarr);
+    for(auto j = myarr2.begin();j!=myarr2.end();j++)
+    {
+        for(auto k=j->begin();k!=j->end();k++)
+        {
+            cout<<*k<<"\t";
+        }
+        cout<<"\n";
+    }
+
     return 0;
 }
