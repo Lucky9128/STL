@@ -1,12 +1,14 @@
 #include<stdio.h>
 
-void main()
+int main()
 {
 	int i=0;
 	while(i++!=50)
 	{
 		printf("\r%d",i);
 		fflush(stdout);
-		sleep(0.5);
+//		sleep(0.5);
 	}
+return 0;
 }
+
