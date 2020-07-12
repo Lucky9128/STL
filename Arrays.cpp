@@ -1,6 +1,9 @@
 #include<iostream>
 #include<array>
 
+//template  <class T, size_t N> class array; 
+
+
 using namespace std;
 
 
@@ -12,6 +15,8 @@ int main()
     // for(int i=1;i<=lent;i++)
     //     myarr.fill(i);
 
+    //accessing via index
+    cout << myarr[3]<<endl;
 
     cout << "My array : \n";
 
@@ -74,6 +79,11 @@ int main()
     *it = *it+1; 
     cout<<"After -> "<<*it<<endl;
     *it-=1;
+
+
+    //accessing via index
+    cout <<"Accessing another element from begining"<<*(it+2)<<endl;
+
     cout<<"size->"<<myarr.size()<<endl;
     cout<<"maxsize->"<<myarr.max_size()<<endl;
     //didn't found any difference in max_size and size

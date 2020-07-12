@@ -1,0 +1,23 @@
+OOPs:
+
+Abstraction:
+Data abstraction refers to, providing only essential information to the outside world and hiding their background details, 
+For example, a database system hides certain details of how data is stored and created and maintained.
+
+Encapsulation:
+ it is not always clear which functions work on which variables but object-oriented programming provides you 
+ framework to place the data and the relevant functions together in the same object
+ 
+polymorphism comes in picture with inheritance and 
+overloading in the same class
+
+
+storage classes:
+
+auto : by default and scope is local;
+register : local varibales those are stored in register(but this not necessary it depends on H/W and implementation restrictions)
+
+
+global varibales:
+they are accessed in other file by the help of extern keyword
+
