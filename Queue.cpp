@@ -21,6 +21,13 @@ insert
 operator=, operator[]
 
 */
+//need to know difference in emplace and insert
+
+//erase: remove an element in queue
+//erase(iterator itr)
+//erase(iterator strt, iterator end)
+
+//allocator allocats memory and deallocate:
 
 template < class data>
 void display(data abc)
@@ -34,14 +41,20 @@ void display(data abc)
 
 int main()
 {
-    deque<int> myq;
-    vector<int> myvec = {1,2,3,4,5,6};
+    deque<int> myq,myq2;
     for(int i=0;i<10;i++)
     {
         myq.push_back(i);
         myq.push_front(i);
     }
     display(myq);
-    display(myvec);
+    myq.resize(10);
+    display(myq);
+    myq.insert(myq.begin()+2,15);
+    display(myq);
+    myq2.assign(myq.begin(),myq.end()-2);
+    display(myq2);
+    myq2.erase(myq2.begin(),myq2.end()-5);
+    display(myq2);
     return 1;
 }
