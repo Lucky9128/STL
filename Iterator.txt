@@ -1,0 +1,24 @@
+CPP have different category of iterators,
+
+I/O iterator <-- Forward iterator <-- Bidirectional <-- Random Access
+
+input iterator supports operations like : ++, ==, !=, *
+output iterator supports operations like : ++, ==
+Forward iterator supports operations like : ++, ==, !=, *
+Bidirectional iterator supports operations like : ++, --, ==, !=, *
+Random iterator supports operations like : ++, --, ==, !=, *, []
+
+input iterator          ->          istream
+output iterator         ->          ostream
+Bidirectional iterator  ->          list, set, multiset, map, multimap
+Random iterator         ->          vector, dequeue, array 
+
+
+
+
+iterators       Access method       Direction           I/O Cap
+Input	        Linear	            Forward only	    Read-only
+Output	        Linear	            Forward only	    Write-only
+Forward	        Linear	            Forward only	    Read/Write
+Bidirectional	Linear	            Forward & backward	Read/Write
+Random	        Random	            Forward & backward	Read/Write
