@@ -21,3 +21,11 @@ register : local varibales those are stored in register(but this not necessary i
 global varibales:
 they are accessed in other file by the help of extern keyword
 
+
+The Friend function and friend class are the techniques used to access the private members of a class by using friend keyword. The common difference between friend function and friend class is that when friend function is used the private class members can be accessed but in friend class, only the names of the friend class is accessed not the private members of the class.
+
+The friend feature whether used by function or class can produce a negative impact on the object-oriented framework as it weakens the encapsulation which is against the object-oriented paradigm. This is the reason the friend feature must be used wisely otherwise it could break the data hiding of the code
+
+This friend feature is neither commutative and nor transitive. X is a friend of Y doesn’t infer that Y is also a friend of X. If X is a friend of Y and Y is a friend of Z, does not implicate that X is a friend of Z.
+
+

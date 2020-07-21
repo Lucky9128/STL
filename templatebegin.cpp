@@ -10,6 +10,6 @@ int My(abc doc)
 int main()
 {
 cout<<My(12.45)<<endl;
-cout<<My(12);
+cout<<My(12)<<endl;
 return 0;
 }
