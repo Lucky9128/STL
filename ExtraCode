@@ -1,0 +1,207 @@
+
+void swap(int *a1,int *a2)
+{
+    int temp = *a1;
+    *a1 = *a2;
+    *a2 = temp;
+}
+
+int part(vector<int> &A, int low, int high)
+{
+    int pvt = A[high];
+    int i=low-1,j=high;
+
+    for(int j=low;j<high;j++)
+    {
+        if(A[j]<pvt)
+        {
+            i++;
+            swap(&A[i],&A[j]);
+        }
+    }
+    swap(&A[i+1],&A[high]);
+    return i+1;
+}
+
+
+void quick(vector<int> &arr, int low, int high)
+{
+    if(low<high)
+    {
+        int pivot = part(arr,low,high);
+        // printf("pivot->%d\n",pivot);
+        // display(arr,10);
+        int i;
+        // scanf("%d",&i);
+        quick(arr,low,pivot-1);
+        quick(arr,pivot+1,high);
+    }
+}
+int findMin(vector<int> arr, int low, int high)
+{
+    int min=low;
+    for(int i=low+1;i<=high;i++)
+    {
+        if(arr[min]>arr[i])
+            min = i;
+    }
+    cout<<"Ret ->"<<min<<endl;
+    return min;
+}
+
+
+
+
+// void display2(vector<vector<int>> vers)
+// {
+//     for(int i=0;i<vers.size();i++)
+//     {
+//         cout<<i<<endl;
+//         for(int j=0;j<vers[i].size();j++)
+//         {
+//             cout<<"\t"<<vers[i][j];
+//         }
+//         cout<<"\n";
+//     }
+// }
+// int Gdis(struct node *Vers, vector<int> *ver)
+// {
+//     globalVertices[Vers->val -1]=1;
+//     cout<<"At "<<Vers->val<<" have child "<<Vers->child<<endl;
+//     // display(ver);
+//     vector<int>::iterator itr;
+//     for(int i=0;i<Vers->child;i++)
+//     {
+//         int val = Vers->childNode[i]->val -1;
+//         itr = ver->begin();
+//         itr+=val;
+//         cout<<Vers->val<<" -> "<<val+1<<" childval ->"<<*itr;
+//         display(ver);
+//         if(*itr==1)
+//             return 1;
+//         *itr=1;
+//         if(Gdis(Vers->childNode[i],ver))
+//             return 1;
+//         *itr=0;
+//         // ver->insert(val,0);
+//     }
+//     cout<<Vers->val<<" node ended\n";
+//     return 0;
+// }
+
+// int Search(int ver)
+// {
+//     globalVertices[ver]=1;
+//     // cout<<"At "<<ver+1<<"->";
+//     for(int i=0;i<vertices[ver].size();i++)
+//     {
+//         // cout<<"Child "<<vertices[ver][i]+1<<"->";
+//         if(visited[vertices[ver][i]-1]==1)
+//             return 1;
+//         else
+//         {
+//             // cout<<"Srch "<<vertices[ver][i]+1<<"->";
+//             visited[vertices[ver][i]-1]=1;
+//             if(Search(vertices[ver][i]))
+//                 return 1;
+//             visited[vertices[ver][i]-1]=0;
+//         }
+        
+//     }
+//     // cout<<"ends : "<<ver+1<<endl;
+//     return 0;
+// }
+
+// int main()
+// {
+//     int edges=1,ver=2;
+//     // fill(vertices.begin(),vertices.end(),0);
+//     // display(&vertices);
+//     vector<vector<int>> arr(edges);
+//     globalVertices.resize(ver);
+//     vertices.resize(ver);
+//     visited.resize(ver);
+//     fill(globalVertices.begin(),globalVertices.end(),0);
+//     fill(visited.begin(),visited.end(),0);
+//     arr[0] = {1,0};
+//     // arr[1] = {1,5};
+//     // arr[2] = {8,1};
+//     // arr[3] = {7,5};
+//     // arr[4] = {3,7};
+//     // arr[5] = {6,2};
+//     // arr[6] = {2,8};
+//     // arr[7] = {8,6};
+//     cout<<"Size : "<<vertices.size()<<endl;
+
+//     for(int i=0;i<arr.size();i++)
+//     {
+//         vertices[arr[i][0]].push_back(arr[i][1]);
+//     }
+//     display2(vertices);
+//     for(int i=0;i<vertices.size();i++)
+//     {
+//         cout<<i<<"->"<<vertices[i].size()<<endl;
+//         if(globalVertices[i]!=1)
+//         {
+//             if(Search(i))
+//                 cout<<"Ring"<<endl;
+//             else
+//             {
+//                 cout<<"No Ring"<<endl;
+//             }
+//         }
+//     }
+
+
+
+
+
+//     // cout<<arr[0][0]<<endl<<arr[0][1]<<endl;
+//     // int arr[edges][2] = {{1,2},{1,4},{2,4},{2,3}};
+//     // struct node *Ver[ver];
+//     // for(int i=0;i<ver;i++)
+//     // {
+//     //     Ver[i] = (struct node*)malloc(sizeof(struct node));
+//     //     Ver[i]->val = i+1;
+//     //     Ver[i]->root = 1;
+//     //     Ver[i]->child = 0;
+//     // }
+//     // for(int i=0;i<edges;i++)
+//     // {   
+//     //     int ind[] = {arr[i][0]-1,arr[i][1]-1};
+//     //     Ver[ind[0]]->child+=1;
+//     //     Ver[ind[1]]->root=0;
+//     //     cout<<"Adding "<<ind[0]<<" to "<<ind[1]<<"->"<<Ver[ind[0]]->child<<endl;
+//     //     Ver[ind[0]]->childNode.push_back(Ver[ind[1]]); 
+//     // }
+//     // display(&vertices);
+//     // display2(&vertices);
+//     // display(&vertices);
+//     // for(int i=0;i<ver;i++)
+//     // {
+//     //     if(globalVertices[i]!=1)
+//     //     {
+//     //         // fill(vertices.begin(),vertices.end(),0);
+//     //         *(vertices.begin()+i) = 1;
+//     //         if(Gdis(Ver[i],&vertices))
+//     //             cout<<"ring"<<endl;
+//     //         else
+//     //             cout<<"No ring\n";
+//     //         *(vertices.begin()+i) = 0;
+//     //         // display(&vertices);
+//     //     }
+//     // }
+   
+//     return 0;
+// }
+
+
+// // int P1(vector<int>,int);
+// // int P2(vector<int>,int);
+// // void display(vector<int> arr)
+// // {
+// //     for(int i=0;i<arr.size();i++)
+// //         cout<<"\t"<<arr[i];
+// //     cout<<endl;
+// // }
+

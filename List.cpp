@@ -1,5 +1,6 @@
 #include<iostream>
 #include<list>
+#include<typeinfo>
 
 //double ended queue:
 //operations : enq_front, enq_back, deq_front, deq_back, and empty
@@ -64,24 +65,34 @@ int main()
         lst.push_back(10-i);
         lst2.push_back(100+i);
     }
-    // display(lst);
-    // display(lst2);
-    //this will make the lst2 empty
-    // lst.merge(lst2,cmp);
-    // lst.sort();
-    // display(lst);
-    // lst.sort(cmp);
-    // display(lst);
+    display(lst);
+    display(lst2);
+    // this will make the lst2 empty
+    lst.merge(lst2,cmp);
+    lst.sort();
+    display(lst);
+    lst.sort(cmp);
+    display(lst);
 
-    // lst.push_back(9);
-    // display(lst);
-    // lst.remove_if(prep);
-    // display(lst);
-    // lst.reverse();
-    // display(lst);
+    lst.push_back(9);
+    display(lst);
+    lst.remove_if(prep);
+    display(lst);
+    lst.reverse();
+    display(lst);
 
     list<int> lst4 = {1,2,3,4,5,6,7,8,9};
     list<int> lst5 = {1,2,3,4,5,6,7,8,9};
+
+
+    list<int>::iterator abc = lst5.begin();
+    cout<<*abc<<endl;
+    // std::advance(abc, 2);
+    // cout<<typeid(lst5.begin()).name()<<endl;
+    // cout<<typeid(abc).name()<<endl;
+    // cout<<*abc<<endl;
+
+
     // lst.swap(lst4);
     // display(lst);
     // display(lst4);
